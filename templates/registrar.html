@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cadastro Looterya</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="icon" href="{% static 'imagens/logo_loteria.png' %}">
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+  </head>
+  <body >
+    <div class="main-block">
+    <form action="{% url 'cadastro' %}" style=" margin:37px 200px 20px 200px ; border-radius: 20px; border-style: double; background:#fff ; " method="POST">
+      {% csrf_token %}
+      <h1>Cadastro Looterya</h1>
+      <fieldset>
+        <legend>
+          <h3>Detalhes da conta</h3>
+        </legend>
+        <div  class="account-details">
+          <div><label>Username*</label><input type="text" maxlength="50" name="username" required></div>
+          <div><label>Senha*</label><input type="password" maxlength="50" name="senha" required></div>
+          <div><label >E-mail*</label><input type="email" maxlength="50" name="email" required></div>
+          <div><label>Digite novamente a senha*</label><input type="password" name="senha2" required></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>
+          <h3>Informações Pessoais</h3>
+        </legend>
+        <div  class="personal-details">
+          <div>
+            <div><label>Nome*</label><input type="text" maxlength="25" name="nome" required></div>
+            <div><label>Sobrenome*</label><input type="text" maxlength="50" name="sobrenome"  required></div>
+            <div><label>URL de troca da steam*</label><input type="text" name="urltrade" required></div>
+          </div>
+          <div>
+            <div>
+              <label>Gênero*</label>
+              <div class="genero" >             
+              <select id="sexo" name="sexo" required>
+                <option  value=""></option>
+                <option  value="masculino">Masculino</option>
+                <option  value="feminino">Feminino</option>
+                <option  value="indefinido">Indefinido</option>
+              </select>
+              </div>
+            </div>
+            <div><label>Telefone*</label><input type="text" maxlength="25" name="telefone" required placeholder="(XX) XXXXX-XXXX"></div>
+            <div class="aniversario">
+              <label>Data de nascimento*</label>
+              <div class="bdate-block">
+                  <input type="date" name="nasc" placeholder="nascimento " required="required">
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>
+          <h3>Termos e licença</h3>
+        </legend>
+        <div  class="terms-mailing">
+          <div class="checkbox">
+            <input type="checkbox" name="checkbox"><span>Eu aceito <a href="Termos.html" target="_blank">Termos de Uso</a></span>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="checkbox"><span>Concordo receber ofertas no meu e-mail</span>
+          </div>
+      </fieldset>
+      <input type="submit" value="Cadastrar">
+    </form>
+    </div> 
+  </body>
+</html>

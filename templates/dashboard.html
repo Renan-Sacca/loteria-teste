@@ -1,0 +1,112 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Looterya</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="{% static 'css/index2.css' %}">
+<link rel="stylesheet" href="{% static 'css/filtros.css' %}">
+<link rel="stylesheet" href="{% static 'css/banner.css' %}">
+<link rel="icon" href="{% static 'imagens/logo.png' %}">
+
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/montserrat:n4:default;source-sans-pro:n2:default.js" type="text/javascript"></script>
+</head>
+
+<body style="background-image: linear-gradient( #303459,darkblue)">
+
+  {% include 'partials/menu2.html' %}
+  
+  <div id="content">
+    <section class="sidebar"> 
+      <!-- This adds a sidebar with 1 searchbox,2 menusets, each with 4 links -->
+      <input type="text"  id="search" placeholder="Digite o nome da skin">
+      <div id="menubar">
+        <nav class="menu">
+          <h2><!-- Title for menuset 1 -->FILTRAR POR CATEGORIAS </h2>
+          <hr>
+          <ul>
+            <!-- List of links under menuset 1 -->
+            <li><a href="#" title="Link">Factory New</a></li>
+            <li><a href="#" title="Link">Minimal Wear</a></li>
+            <li><a href="#" title="Link">Field Tested</a></li>
+			<li><a href="#" title="Link">Well-Worn</a></li>
+            <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views --><a href="#"  title="Link">Battle Scared</a></li>
+          </ul>
+        </nav>
+        <nav class="menu">
+          <h2>FILTRAR POR VALOR </h2>
+          <!-- Title for menuset 2 -->
+          <hr>
+          <ul class="slidecontainer">
+            <!--List of links under menuset 2 -->
+			<li>
+				<p style="margin-top: -10px; margin-bottom: 0px">Valor Mínimo: <span id="demo"></span></p>   
+			</li>  
+			
+            <li>	
+  				<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+			</li>
+			
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <section class="mainContent">
+      <div class="productRow"><!-- Each product row contains info of 3 elements -->
+        <article class="productInfo"><!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhnwMzJemkV0966m4-PhOf7Ia_ummJW4NFOhujT8om73ASy-0RqNW-hLYTAcg5vMgvT_Vm4wefthpO_v8yYwHVlsicr4C3fzQv330_79eypFA/360fx360f"></div>
+          <p class="price">318 Moedas</p>
+          <p class="productContent">AK-47 | Bloodsport</p>
+		  <p class="productContent">Minimal Wear</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+        <article class="productInfo"><!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJS_8W1nI-bluP8DLfYkWNF18lwmO7Eu92kjQHgqkVrYzv0I4_AcwE7ZguDr1C2lL_tgJTou52cm3Fm6SZz4nrD30vgWTTGJEA/360fx360f"></div>
+          <p class="price">55 Moedas</p>
+          <p class="productContent">AWP | Fever Dream</p>
+		  <p class="productContent">Factory New</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+        <article class="productInfo"> <!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwW0924l4WYg-X1P4Tdn2xZ_Pp9i_vG8ML2ilDt_EBuZWH6coKXIAFvNAvZ-wPqk-fug5DuvciczXNnsycmti3agVXp1u5gA4zt/360fx360f"></div>
+          <p class="price">158 Moedas</p>
+          <p class="productContent">M4A4 | 龍王 (Dragon King)</p>
+		  <p class="productContent">Factory New</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+      </div>
+      <div class="productRow"> 
+        <!-- Each product row contains info of 3 elements -->
+        <article class="productInfo"> <!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0vL3dzxG6eO6nYeDg8j4MqnWkyUHucB1ieqXrIrz2gHmr0ZvZDj3cNKUdlQ-YF6DqAS2w-i8h5Dt6Zib1zI97Ycw1ud8/360fx360f"></div>
+          <p class="price">5900 Moedas</p>
+          <p class="productContent">Glock-18 | Fade</p>
+		  <p class="productContent">Factory New</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+        <article class="productInfo"> <!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJl5W0nPbmMrbummRD7fp5j-jX7LP5iUazrl0-ZGymcoSSJwQ3ZF-B_we9lenpjMW5vZnBz3Jm7CYr5HqOm0a2hksYcKUx0rDkQfdw/360fx360f"></div>
+          <p class="price">2346 Moedas</p>
+          <p class="productContent">★ Karambit | Lore</p>
+		  <p class="productContent">Battle Scared</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+		<article class="productInfo"> <!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ09-jq5WYh8jyP7rCnmlQ685OhuDG_ZjKhFWmrBZyZ26mJYaUcA9vN1vT-VG9k7-8gJO7uZvJzXJj6SMhsHuLyhCyhB5Ebvsv26JGwTIKdQ/360fx360f"></div>
+          <p class="price">5 Moedas</p>
+          <p class="productContent">USP-S | Flashback</p>
+		  <p class="productContent">Minimal Wear</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+        
+      </div>
+      
+    </section>
+  </div>
+  {% include 'partials/footer.html' %}
+</body>
+</html>

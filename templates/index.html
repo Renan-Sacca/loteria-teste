@@ -1,0 +1,80 @@
+{% load static %}
+
+<!doctype html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Looterya</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="{% static 'css/index2.css' %}">
+<link rel="stylesheet" href="{% static 'css/filtros.css' %}">
+<link rel="stylesheet" href="{% static 'css/banner.css' %}">
+<link rel="icon" href="{% static 'imagens/logo.png' %}">
+
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+</head>
+
+<body style="background-image: linear-gradient( #303459,darkblue)">
+
+  {% include 'partials/menu2.html' %}
+  
+  <div id="content">
+    <section class="sidebar"> 
+      <!-- This adds a sidebar with 1 searchbox,2 menusets, each with 4 links -->
+      <input type="text"  id="search" placeholder="Digite o nome da skin">
+      <div id="menubar">
+        <nav class="menu">
+          <h2><!-- Title for menuset 1 -->FILTRAR POR CATEGORIAS </h2>
+          <hr>
+          <ul>
+            <!-- List of links under menuset 1 -->
+            <li><a href="#" title="Link">Factory New</a></li>
+            <li><a href="#" title="Link">Minimal Wear</a></li>
+            <li><a href="#" title="Link">Field Tested</a></li>
+			<li><a href="#" title="Link">Well-Worn</a></li>
+            <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views --><a href="#"  title="Link">Battle Scared</a></li>
+          </ul>
+        </nav>
+        <nav class="menu">
+          <h2>FILTRAR POR VALOR </h2>
+          <!-- Title for menuset 2 -->
+          <hr>
+          <ul class="slidecontainer">
+            <!--List of links under menuset 2 -->
+			<li>
+				<p style="margin-top: -10px; margin-bottom: 0px">Valor Mínimo: <span id="demo"></span></p>   
+			</li>  
+			
+            <li>	
+  				<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+			</li>
+			
+          </ul>
+        </nav>
+      </div>
+    </section>
+    
+    <section class="mainContent">
+     
+      <div class="productRow"><!-- Each product row contains info of 3 elements -->
+        {% for rifas in rifa %}
+        <article class="productInfo"><!-- Each individual product description -->
+          <div><img alt="sample" src="{{ rifas.id_skin.link }}"></div>
+          <p class="price">{{ rifas.valor_entrada }} LootPoints</p>
+          <p class="productContent">{{ rifas.id_skin.nome }}</p>
+		  <p class="productContent">{{ rifas.id_skin.categoria }}</p>
+      <a href={% url 'rifas' rifas.id %}><input type="button" name="button" value="Entre na Rifa" class="buyButton"></a>
+        </article>
+        {% endfor %}
+        
+        
+      </div>
+      
+    </section>
+  </div>
+  {% include 'partials/footer.html' %}
+</body>
+</html>

@@ -1,0 +1,5 @@
+{% url 'receitas' receita.id  %}
+
+path("<int:receita_id>")
+
+(request,receita_id)

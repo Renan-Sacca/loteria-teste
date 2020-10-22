@@ -1,0 +1,45 @@
+{% load static %}
+
+<div id="mainWrapper">
+    <header> 
+      <!-- This is the header content. It contains Logo and links -->
+      <div id="logo"><a href="{% url 'dashboard' %}"><img src="{% static 'imagens/logo.png' %}" alt="sample logo" width="129" height="125"> </a>
+        <!-- Company Logo text --> 
+         </div>
+      <div id="headerLinks">
+        {% if user.is_authenticated %}
+        <a href="#" title="sair">Rifas Premium</a>
+        <a href="#" title="Cart">Rifas Free</a>
+        <a href="{% url 'pagamentos' %}" title="Cart">Histórico</a>
+        <a href="{% url 'logout' %}" title="Cart">{{ user.first_name }}</a>
+        {% else %}
+        <a href="{% url 'login' %}" title="Login/Register">Login/Register</a>
+        <a href="#" title="Cart">Rifas Premium</a>
+        <a href="{% url 'pagamentos' %}" title="Cart">Rifas Free</a>
+        <a href="#" title="Cart">Histórico</a>
+        {% endif %} 
+      </div>
+    </header>
+    <section id="offer"> 
+  
+        <div class="slideshow-container">
+      <div class="mySlides1">
+        <img src="{% static 'imagens/banner1.png' %}" style="width:100%">
+      </div>
+  
+      <div class="mySlides1">
+        <img src="{% static 'imagens/banner2.png' %}" style="width:100%">
+      </div>
+  
+      <div class="mySlides1">
+        <img src="{% static 'imagens/banner3.png' %}" style="width:100%">
+      </div>
+  
+      <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+    </div>
+      
+      <!-- The offer section displays a banner text for promotions 
+      <h2>OFFER 50%</h2>
+      <p>REALLY AWESOME DISCOUNTS THIS JULY</p> -->
+    </section>
