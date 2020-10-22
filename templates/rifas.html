@@ -22,10 +22,11 @@
   
   <div id="content">
     <section class="sidebar"> 
-		<h3 style="color: black">Username: dok4_</h3>
+		<h3 style="color: black">Username: {{ user.first_name }}</h3>
 		<img src="{% static 'imagens/robo.png' %}" style="width: 100%">
-		<h3 style="color: black">LootPoints: 9999</h3>
-		
+    
+		<h3 style="color: black">LootPoints:  {{profiles.pontos}} </h3>
+		  
 		<div id="menubar">
         <nav class="menu">
           <ul>
