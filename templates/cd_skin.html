@@ -1,36 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Cadastro de skins Looterya</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link href="loteria.css" rel="stylesheet" >
+    <link href="{% static 'css/cd_skin.css' %}" rel="stylesheet" >
   </head>
   <body >
     <div class="main-block">
-    <form action="/" style=" margin:37px 200px 20px 200px ; border-radius: 37px; border-style: double; background:#fff ; " >
+    <form action="{% url 'cd_skin' %}" style=" margin:37px 200px 20px 200px ; border-radius: 37px; border-style: double; background:#fff ; " method="POST" >
+      {% csrf_token %}
       <h1>Cadastro Looterya</h1>
       <fieldset>
         <legend>
           <h3>Detalhes skin</h3>
         </legend>
         <div  class="account-details">
-          <div><label>Nome da skin</label><input type="text" maxlength="50" name="name" required></div>
+          <div><label>Nome da skin</label><input type="text" maxlength="50" name="nome" required></div>
           <div><label>Exterior skin</label>
             <div>
-              <select required>
-                <option value=""></option>
-                <option value="nova">Nova de Fábrica</option>
-                <option value="pouco">Pouco usada</option>
-                <option value="testado">Testado em campo</option>
-                <option value="bemdesgastada">Bem desgastada</option>
-                <option value="veterana">Veterana de Guerra</option>
+              <select required name="categoria" >
+                <option  value=""></option>
+                <option value="Factory New">Factory New</option>
+                <option value="Minimal Wear">Minimal Wear</option>
+                <option value="Field Tested">Field Tested</option>
+                <option value="Well-Worn">Well-Worn</option>
+                <option value="Battle Scared">Battle Scared</option>
               </select>
             </div>
 
           </div>
           <div><label>Digite o valor:</label><input type="value" maxlength="15" name="valor" required></div>
-          <div><label>Digite o link:</label><input type="url" name="name" required></div>
+          <div><label>Digite o link:</label><input type="url" name="link" required></div>
           
         </div>
       </fieldset>

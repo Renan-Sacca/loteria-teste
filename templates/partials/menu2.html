@@ -8,8 +8,8 @@
          </div>
       <div id="headerLinks">
         {% if user.is_authenticated %}
-        <a href="#" title="sair">Rifas Premium</a>
-        <a href="#" title="Cart">Rifas Free</a>
+        <a href="{% url 'cd_skin' %}" title="sair">Rifas Premium</a>
+        <a href="{% url 'cd_rifa' %}" title="Cart">Rifas Free</a>
         <a href="{% url 'pagamentos' %}" title="Cart">Histórico</a>
         <a href="{% url 'logout' %}" title="Cart">{{ user.first_name }}</a>
         {% else %}
