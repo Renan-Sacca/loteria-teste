@@ -5,6 +5,7 @@ from login.models import Profile
 from Home.models import fichas
 import smtplib
 import random
+from rifas.models import rifa
 from django.contrib import messages
 
 def cadastro(request):
@@ -90,6 +91,7 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             print('Login realizado com sucesso')
+            
             return redirect('dashboard')
 
         return render(request,'login.html')
@@ -103,11 +105,11 @@ def logout(request):
 
 def dashboard(request):
     
-    ficha = fichas.objects.all()
-    
+    rifas = rifa.objects.all()
     dados={
-        'fichas' : ficha
+        'rifa' : rifas,
     }
+    print(dados)
     if request.user.is_authenticated:
         return render(request,'dashboard.html',dados)
     else:

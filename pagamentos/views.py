@@ -24,8 +24,28 @@ def pagamentos(request):
     
     
 def formas_pag(request,valor):
+    profiles = Profile.objects.filter(user=request.user.id)
     dados = {
         'valor' : valor,
+        'profile': profiles,
     }
     return render(request,'formas_pag.html',dados)
 
+def pagou(request,valor):
+    profiles = Profile.objects.get(user=request.user.id)
+    if valor == 2:
+        profiles.pontos += 200
+    elif valor == 5:
+        profiles.pontos += 500
+    elif valor == 10:
+        profiles.pontos += 1000
+    elif valor == 20:
+        profiles.pontos += 2100
+    elif valor == 50:
+        profiles.pontos += 5400
+    elif valor == 99:
+        profiles.pontos += 1100
+
+    profiles.save()
+    return redirect('index')
+    

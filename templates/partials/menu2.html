@@ -3,7 +3,7 @@
 <div id="mainWrapper">
     <header> 
       <!-- This is the header content. It contains Logo and links -->
-      <div id="logo"><a href="{% url 'dashboard' %}"><img src="{% static 'imagens/logo.png' %}" alt="sample logo" width="129" height="125"> </a>
+      <div id="logo"><a href="{% url 'index' %}"><img src="{% static 'imagens/logo.png' %}" alt="sample logo" width="129" height="125"> </a>
         <!-- Company Logo text --> 
          </div>
       <div id="headerLinks">
@@ -20,26 +20,4 @@
         {% endif %} 
       </div>
     </header>
-    <section id="offer"> 
-  
-        <div class="slideshow-container">
-      <div class="mySlides1">
-        <img src="{% static 'imagens/banner1.png' %}" style="width:100%">
-      </div>
-  
-      <div class="mySlides1">
-        <img src="{% static 'imagens/banner2.png' %}" style="width:100%">
-      </div>
-  
-      <div class="mySlides1">
-        <img src="{% static 'imagens/banner3.png' %}" style="width:100%">
-      </div>
-  
-      <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-    </div>
-      
-      <!-- The offer section displays a banner text for promotions 
-      <h2>OFFER 50%</h2>
-      <p>REALLY AWESOME DISCOUNTS THIS JULY</p> -->
-    </section>
+    

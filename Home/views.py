@@ -15,5 +15,20 @@ def index(request):
     else:
         return render(request,'index.html', dados)
 
+def dashboard(request):
+    
+    rifas = rifa.objects.all()
+    dados={
+        'rifa' : rifas,
+    }
+    print(dados)
+    if request.user.is_authenticated:
+        return render(request,'dashboard.html',dados)
+    else:
+        return render(request,'index.html', dados)
+
+
+    
+
     
 

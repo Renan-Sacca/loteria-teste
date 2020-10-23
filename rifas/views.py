@@ -9,10 +9,9 @@ from django.contrib import auth
 def rifas(request,valor):
     rifas = rifa.objects.filter(id=valor)
     profiles = Profile.objects.filter(user=request.user.id)
-    print(profiles)
     dados = {
         'rifa' : rifas,
-        'profiles': profiles,
+        'profile': profiles,
     }
     
     return render(request,'rifas.html',dados)

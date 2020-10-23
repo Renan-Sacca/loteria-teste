@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cadastro de skins Looterya</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="loteria.css" rel="stylesheet" >
+  </head>
+  <body >
+    <div class="main-block">
+    <form action="/" style=" margin:37px 200px 20px 200px ; border-radius: 37px; border-style: double; background:#fff ; " >
+      <h1>Cadastro de Rifas</h1>
+      <fieldset>
+        <legend>
+          <h3>Detalhes rifas</h3>
+        </legend>
+        <div  class="account-details">
+          <div><label>Valor Total</label><input type="text" maxlength="20" name="name" required></div>
+          <div><label>Quantidade de rifas</label><input type="value" maxlength="20" name="quant" required></div>
+          <div><label>Valor ( unitário )</label><input type="value" maxlength="20" name="valorrifa" required></div>
+          <div><label>Participantes</label><input type="text" maxlength="20" name="name" required></div>
+          <div><label>Data inicial</label><input type="datetime-local"  name="dataini" required></div>
+          <div><label>Data final</label><input type="datetime-local"  name="datafina" required></div>
+          <div><label>ID skin</label><input type="text" maxlength="50" name="idskin" required></div>
+          <div><label>Status</label>
+            <div>
+              <select required>
+                <option value=""></option>
+                <option value="ativo">Ativa</option>
+                <option value="inativo">Inativa</option>
+              </select>
+            </div>
+
+          </div>
+          <div><label>Valor:</label><input type="value" maxlength="15" name="valor" required></div>
+          <div><label>Link:</label><input type="url" name="name" required></div>
+          
+        </div>
+      </fieldset>
+      <button type="submit" href="/">Enviar</button>
+    </form>
+    </div> 
+  </body>
+</html>

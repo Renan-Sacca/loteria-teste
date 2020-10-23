@@ -20,10 +20,13 @@
 
   <div id="content">
     <section class="sidebar">
-		<h3 style="color: black">Última chance! {{ user.first_name }}</h3>
-    {% for profile in Profile.user.user.id %}
-		<h3 style="color: black">Possui algum cupom? {{ profile.numero }}</h3>
-    {% endfor %}
+    {% for profiles in profile %}
+		
+		
+		<h3 style="color: black">Última chance! {{ user.first_name }}  {{ valor }}</h3>
+
+		<h3 style="color: black">Possui algum cupom? {{profiles.pontos}} </h3>
+    {% endfor %}  
       <input type="text"  id="search" placeholder="Digite o código" style="color: black">
       <div id="menubar">
         <nav class="menu">
@@ -48,7 +51,7 @@
         <article class="productInfo"> <!-- Each individual product description -->
           <div><img alt="sample" src="{% static 'imagens/credito.png' %}"></div>
 			<p>&nbsp;</p>
-          <input type="button" name="button" value="Pagar" class="buyButton">
+          <a href="{% url 'pagou' valor %}"><input type="button" name="button" value="Pagar" class="buyButton"></a>
         </article>
       </div>      
     </section>
@@ -66,6 +69,7 @@
 
    <script>
     var total = '{{ valor }}'
+    var url = "{% url 'index' %}"
     paypal.Buttons({
       createOrder: function(data, actions) {
         // This function sets up the details of the transaction, including the amount and line item details.
@@ -81,10 +85,17 @@
       onApprove: function(data, actions) {
         // This function captures the funds from the transaction.
         return actions.order.capture().then(function(details) {
+
+          
           // This function shows a transaction success message to your buyer.
-          alert('Transaction completed by ' + details.payer.name.given_name);
+          alert('Transaction completed by  ' + details.payer.name.given_name );
+          window.location.replace( "{% url 'pagou' valor %}")
+          
+          
+          
           
         });
+        
       }
     }).render('#paypal-button-container');
     //This function displays Smart Payment Buttons on your web page.

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cadastro de skins Looterya</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="loteria.css" rel="stylesheet" >
+  </head>
+  <body >
+    <div class="main-block">
+    <form action="/" style=" margin:37px 200px 20px 200px ; border-radius: 37px; border-style: double; background:#fff ; " >
+      <h1>Cadastro Looterya</h1>
+      <fieldset>
+        <legend>
+          <h3>Detalhes skin</h3>
+        </legend>
+        <div  class="account-details">
+          <div><label>Nome da skin</label><input type="text" maxlength="50" name="name" required></div>
+          <div><label>Exterior skin</label>
+            <div>
+              <select required>
+                <option value=""></option>
+                <option value="nova">Nova de Fábrica</option>
+                <option value="pouco">Pouco usada</option>
+                <option value="testado">Testado em campo</option>
+                <option value="bemdesgastada">Bem desgastada</option>
+                <option value="veterana">Veterana de Guerra</option>
+              </select>
+            </div>
+
+          </div>
+          <div><label>Digite o valor:</label><input type="value" maxlength="15" name="valor" required></div>
+          <div><label>Digite o link:</label><input type="url" name="name" required></div>
+          
+        </div>
+      </fieldset>
+      <button type="submit" href="/">Enviar</button>
+    </form>
+    </div> 
+  </body>
+</html>
