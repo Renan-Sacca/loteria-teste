@@ -63,10 +63,10 @@
       <div class="productRow"><!-- Each product row contains info of 3 elements -->
         {% for rifas in rifa %}
         <article class="productInfo"><!-- Each individual product description -->
-          <div><img alt="sample" src="{{ rifas.id_skin.link }}"></div>
+          <div><img alt="sample" src="{{ rifas.skin.link }}"></div>
           <p class="price">{{ rifas.valor_entrada }} LootPoints</p>
-          <p class="productContent">{{ rifas.id_skin.nome }}</p>
-		  <p class="productContent">{{ rifas.id_skin.categoria }}</p>
+          <p class="productContent">{{ rifas.skin.nome }}</p>
+		  <p class="productContent">{{ rifas.skin.categoria }}</p>
       <a href={% url 'rifas' rifas.id %}><input type="button" name="button" value="Entre na Rifa" class="buyButton"></a>
         </article>
         {% endfor %}

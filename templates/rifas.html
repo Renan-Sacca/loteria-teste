@@ -37,7 +37,7 @@
 		<hr>
     {% for rifas in rifa %}
    
-		<h3 style="color: black">{{ rifas.id_skin.nome }} ({{ rifas.id_skin.categoria }})</h3>
+		<h3 style="color: black">{{ rifas.skin.nome }} ({{ rifas.skin.categoria }})</h3>
       <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7umeldf0Ob3fDxBvYyJmoGIhfLLPr7Vn35c18lwmO7Eu42giVbg-RY4MTylJYSSdgQ6M1_YrlS4x-_vjZPov5nNyndjuCghtnnD30vgC8iQ-N0/330x192" width="100%">
 		<h3 style="color: black">Valor da Entrada: {{ rifas.valor_entrada }} LootPoints</h3>
     {% endfor %}
