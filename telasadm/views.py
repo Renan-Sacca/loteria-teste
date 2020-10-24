@@ -32,7 +32,7 @@ def cd_rifa(request):
         participantes = participantes[0:-1]
         participantes += "}"  
         print(participantes)
-        rifas = rifa.objects.create(valor_total=valor_total,num_entradas=num_entradas,valor_entrada=valor_entrada,participantes=participantes,data_inicial=data_inicial,data_final=data_final,id_skin=skins,ativa=ativa)     
+        rifas = rifa.objects.create(valor_total=valor_total,num_entradas=num_entradas,valor_entrada=valor_entrada,participantes=participantes,data_inicial=data_inicial,data_final=data_final,id_skin=skins.id,ativa=ativa)     
         rifas.save()
         return render(request,'cd_rifa.html')
 

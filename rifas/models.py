@@ -12,9 +12,11 @@ class rifa(models.Model):
     participantes = models.TextField()
     data_inicial = models.DateField()
     data_final =  models.DateField()
-    id_skin = models.ManyToManyField(skin, related_name='skin')
+    id_skin = models.OneToOneField(skin, related_name='skin', on_delete=models.CASCADE)
     ativa = models.BooleanField()
-    
+
+
+  
     
 
 
