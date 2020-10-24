@@ -18,5 +18,7 @@ class Profile(models.Model):
     ativado = models.BooleanField()
     pontos = models.IntegerField()    
     urltrade = models.CharField(max_length=200)
+    aniversario = models.DateField()
+    foto = models.ImageField(upload_to='fotos/%d/%m/%Y/', blank=True)
     
 

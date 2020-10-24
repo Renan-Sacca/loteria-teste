@@ -18,6 +18,9 @@ def cadastro(request):
         senha2 = request.POST['senha2']
         sexo = request.POST['sexo']
         numero = request.POST['telefone']
+        url = request.POST['urltrade']
+        aniversario = request.POST['nasc']
+        fotos = request.FILES['foto']
         if not username.strip():
             print('O campo Username não pode ficar em branco')
             
@@ -61,7 +64,7 @@ def cadastro(request):
         user = auth.authenticate(request, username=username, password=senha)
         auth.login(request, user)
 
-        profile = Profile.objects.create(numero=numero,sexo=sexo,cod_conf=cod,ativado=False,user_id = request.user.id,pontos=0)     
+        profile = Profile.objects.create(numero=numero,sexo=sexo,cod_conf=cod,ativado=False,user_id = request.user.id,pontos=0,urltrade=url,aniversario=aniversario,foto=fotos)     
         profile.save()
         print('Usuário cadastrado com sucesso')
 

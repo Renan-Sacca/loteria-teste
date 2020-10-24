@@ -16,13 +16,6 @@ class rifa(models.Model):
     ativa = models.BooleanField()
 
 
-
-
-
-
-
-
-
 class historico(models.Model):
     nome_vencedor = models.CharField(max_length=200)
     data_sorteio =   models.DateField()
