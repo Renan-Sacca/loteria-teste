@@ -40,3 +40,6 @@
 
 /* ----Range Sliders---- */
 
+.slideshow-container {
+  z-index: -9;
+}
