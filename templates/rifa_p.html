@@ -67,7 +67,7 @@
           <p class="price">{{ rifas.valor_entrada }} LootPoints</p>
           <p class="productContent">{{ rifas.skin.nome }}</p>
 		  <p class="productContent">{{ rifas.skin.categoria }}</p>
-      <a href={% url 'rifas' rifas.id %}><input type="button" name="button" value="Entre na Rifa" class="buyButton"></a>
+      <a href={% url 'Rifas' rifas.id %}><input type="button" name="button" value="Entre na Rifa" class="buyButton"></a>
         </article>
         {% endfor %}
         

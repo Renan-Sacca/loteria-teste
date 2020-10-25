@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+
 from django.contrib import auth ,messages
 from login.models import Profile
 from login.models import Pessoa
@@ -8,6 +9,8 @@ import smtplib
 import random
 from rifas.models import rifa
 from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 
 def cadastro(request):
     if request.method == 'POST':
@@ -135,3 +138,67 @@ def dashboard(request):
     else:
         return redirect('index')
     
+def perfil(request):
+    profiles = Profile.objects.get(user=request.user.id)
+    
+    dados={
+        'profiles' : profiles,
+    }
+    return render(request,'perfil.html',dados)
+
+def alterarsenha(request):
+    if request.method == 'POST':
+        print("teste")
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            print("entrou")
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return render(request, "Perfil.html")
+        else:
+            print("não entrou")
+            return redirect("index")
+    else:
+        form = PasswordChangeForm(user=request.user)
+        context = {
+            'form':form,
+        }
+        return render(request, "alterarsenha.html",context)
+
+def alterardado(request):
+    if request.method == 'POST':
+        nome = request.POST['nome']
+        sobrenome = request.POST['sobrenome']
+        email = request.POST['email']
+        url = request.POST['url']
+        telefone = request.POST['telefone']
+        print(nome,sobrenome,email,url,telefone)
+        profiles = Profile.objects.get(user=request.user.id)
+
+        profiles.urltrade = url
+        profiles.numero = telefone
+        profiles.save()
+
+        request.user.first_name = nome
+        request.user.last_name = sobrenome
+        request.user.email = email
+
+        request.user.save()
+
+
+        
+
+
+    return redirect('perfil')
+
+def ativar(request):
+    return render(request,'ativarConta.html')
+
+def esquecisenha(request):
+    return render(request,'esquecisenha.html')
+
+    
+def resetsenha(request):
+    return render(request,'esquecisenha.html')
+
+

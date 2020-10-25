@@ -1,0 +1,37 @@
+<form method="post"><input type="hidden" name="csrfmiddlewaretoken" value="dUeI18uRiuK1HMH5x6tRZVx8FuY1rHUzxzyhSDCEuTcgrqjarz1RmlDFjMLe2Q2x">
+    {% csrf_token %}
+    <div>
+    
+    
+    
+    <p>Por favor, informe sua senha antiga, por segurança, e então informe sua nova senha duas vezes para que possamos verificar se você digitou corretamente.</p>
+    
+    <fieldset class="module aligned wide">
+    
+    <div class="form-row">
+        
+        <label class="required" for="id_old_password">Senha antiga:</label> <input type="password" name="old_password" autofocus required id="id_old_password">
+    </div>
+    
+    <div class="form-row">
+        
+        <label class="required" for="id_new_password1">Nova senha:</label> <input type="password" name="new_password1" required id="id_new_password1">
+        
+        <div class="help"><ul><li>Sua senha não pode ser tão parecida com suas outras informações pessoais.</li><li>Sua senha precisa conter pelo menos 8 caracteres.</li><li>Sua senha não pode ser uma senha habitualmente utilizada.</li><li>Sua senha não pode ser inteiramente numérica.</li></ul></div>
+        
+    </div>
+    
+    <div class="form-row">
+    
+        <label class="required" for="id_new_password2">Confirmação da nova senha:</label> <input type="password" name="new_password2" required id="id_new_password2">
+        
+    </div>
+    
+    </fieldset>
+    
+    <div class="submit-row">
+        <input type="submit" value="Alterar minha senha" class="default">
+    </div>
+    
+    </div>
+    </form>

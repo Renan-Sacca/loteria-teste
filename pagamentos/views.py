@@ -44,7 +44,7 @@ def pagou(request,valor):
     elif valor == 50:
         profiles.pontos += 5400
     elif valor == 99:
-        profiles.pontos += 1100
+        profiles.pontos += 11000
 
     profiles.save()
     return redirect('index')

@@ -1,0 +1,18 @@
+<html>
+<body>
+<button onclick="myFunction()">Entrar na Rifa</button>
+    <p id="demo"></p>
+
+    <script>
+    function myFunction() {
+    var txt;
+    if (confirm("Deseja confirmar a compra?")) {
+        txt = "Compra Confirmada";
+    } else {
+        txt = "Compra Cancelada";
+    }
+    document.getElementById("demo").innerHTML = txt;
+    }
+    </script>
+</body>
+</html>

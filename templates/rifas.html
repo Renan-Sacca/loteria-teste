@@ -21,7 +21,9 @@
   
   <div id="content">
     <section class="sidebar"> 
-		<h3 style="color: black">Username: {{ user.first_name }}</h3>
+    {% if user.is_authenticated %}
+    <h3 style="color: black">Username: {{ user.first_name }}</h3>
+    <h3 style="color: black">{% include 'partials/_alertas.html' %} </h3>
 		
     {% for profiles in profile %}
     <img src="{{ profiles.foto.url }}" style="width: 100%">
@@ -34,6 +36,10 @@
 		</ul>
         </nav>
       </div>
+    {% else %}
+      <h3 style="color: black">Você ainda não esta logado</h3>
+      <li><a href="{% url 'login' %}"><input type="button" style="margin-top: 20px" name="button" value="Logar" class="buyButton"></a></li>
+    {% endif %}
 		&nbsp;
 		<hr>
     {% for rifas in rifa %}
@@ -51,113 +57,22 @@
       <div class="productRow"><!-- Each product row contains info of 3 elements -->
         {% for te in t %}
         <article class="productInfo"><!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/buzz2.png' %}"></div>
-			<h3 style="color: white">{{ te.numero }}</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
+          {% if te.nome == "" %}
+          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
+          <h3 style="color: white">Nº {{ te.numero }}</h3>
+          <h3 style="color: white"> Disponível </h3>
+          <a href="{% url 'comprarrifa' valor te.numero %}"><input  type="button" name="button" value="Buy" class="buyButton" ></a>
+          {% else %}
+          <div><img alt="sample" src="{{ te.foto }} "></div>
+          <h3 style="color: white">Nº {{ te.numero }}</h3>
+          <h3 style="color: white">{{ te.nome }} </h3>
+          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray">
+          {% endif %}
+          
+          
         </article>
         {% endfor %}
 
-
-        
-        <article class="productInfo"><!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 2</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-        <article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/vayne2.png' %}"></div>
-			<h3 style="color: white">Nº 3</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
-        </article>
-        <article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 4</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-        <article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/blitz2.png' %}"></div>
-			<h3 style="color: white">Nº 5</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
-        </article>
-		  
-		<article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/pinkcerebro2.png' %}"></div>
-			<h3 style="color: white">Nº 6</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
-        </article>
-		<article class="productInfo"><!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 7</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-        <article class="productInfo"><!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/totoro2.png' %}"></div>
-			<h3 style="color: white">Nº 8</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
-        </article>
-        <article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 9</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-        <article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 10</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-		  
-        <article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 11</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-		<article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 12</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-		<article class="productInfo"><!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/pinkcerebro2.png' %}"></div>
-			<h3 style="color: white">Nº 13</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
-        </article>
-        <article class="productInfo"><!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 14</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-        <article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 15</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-		  
-        <article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/vayne2.png' %}"></div>
-			<h3 style="color: white">Nº 16</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
-        </article>
-        <article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
-			<h3 style="color: white">Nº 17</h3>
-          <input type="button" name="button" value="Buy" class="buyButton">
-        </article>
-		<article class="productInfo"> <!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/robo2.png' %}"></div>
-			<h3 style="color: white">Nº 18</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
-        </article>
-		<article class="productInfo"><!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/robo2.png' %}"></div>
-			<h3 style="color: white">Nº 19</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
-        </article>
-        <article class="productInfo"><!-- Each individual product description -->
-          <div><img alt="sample" src="{% static 'imagens/robo2.png' %}"></div>
-			<h3 style="color: white">Nº 20</h3>
-          <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
-        </article>
-        
       </div>
       
     </section>

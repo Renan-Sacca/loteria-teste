@@ -11,11 +11,14 @@ class rifa(models.Model):
     valor_entrada = models.IntegerField()
     participantes = models.TextField()
     num_part = models.IntegerField()
-    premium = ativa = models.BooleanField()
+    premium = models.BooleanField()
     data_inicial = models.DateField()
     data_final =  models.DateField()
     skin = models.ForeignKey(skin,on_delete=models.CASCADE)
     ativa = models.BooleanField()
+    ganhador = models.TextField()
+    e_ganhador = models.BooleanField()
+
 
 
 class historico(models.Model):
