@@ -8,23 +8,43 @@
          </div>
       <div id="headerLinks">
         {% if user.is_authenticated %}
-        <a href="{% url 'cd_skin' %}" title="sair">Rifas Premium</a>
-        <a href="{% url 'cd_rifa' %}" title="Cart">Rifas Free</a>
+        {% if user.is_staff == True %}
+        <a href="{% url 'rifas_p' %}" title="sair">Rifas Premium</a>
+        <a href="{% url 'rifas_f' %}" title="Cart">Rifas Free</a>
         <a href="{% url 'pagamentos' %}" title="Cart">Histórico</a>
+        
         <div class="dropdown">
-          <a href="" >Perfil &nbsp;&nbsp;</a>
+          <a href="#" title="Cart">{{ user.first_name }}  ᐯ</a>
+         
           <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <a href="#">Perfil</a>
+            <a href="#">Histórico</a>
+            <a href="{% url 'cd_skin' %}">Cadastro Skin</a>
+            <a href="{% url 'cd_rifa' %}">Cadastro Rifa</a>            
             <a href="{% url 'logout' %}">Logout</a>
           </div>
         </div>
         {% else %}
+        <a href="{% url 'rifas_p' %}" title="sair">Rifas Premium</a>
+        <a href="{% url 'rifas_f' %}" title="Cart">Rifas Free</a>
+        <a href="{% url 'pagamentos' %}" title="Cart">Histórico</a>
+        
+        <div class="dropdown">
+          <a href="#" title="Cart">{{ user.first_name }}  ᐯ</a>
+          
+          <div class="dropdown-content">
+            <a href="#">Perfil</a>
+            <a href="#">Histórico</a>
+            <a href="{% url 'pagamentos' %}">Comprar moedas</a>
+            <a href="{% url 'logout' %}">Logout</a>
+          </div>
+        </div>
+        {% endif %}
+        {% else %}
         <a href="{% url 'login' %}" title="Login/Register">Login/Register</a>
-        <a href="#" title="Cart">Rifas Premium</a>
-        <a href="{% url 'pagamentos' %}" title="Cart">Rifas Free</a>
-        <a href="#" title="Cart">Histórico</a>
+        <a href="{% url 'rifas_p' %}" title="Cart">Rifas Premium</a>
+        <a href="{% url 'rifas_f' %}" title="Cart">Rifas Free</a>
+        <a href="#" title="Cart">Histórico </a>
         {% endif %} 
       </div>
     </header>

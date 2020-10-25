@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth ,messages
 from login.models import Profile
+from login.models import Pessoa
 from Home.models import fichas
 import smtplib
 import random
@@ -20,29 +21,42 @@ def cadastro(request):
         numero = request.POST['telefone']
         url = request.POST['urltrade']
         aniversario = request.POST['nasc']
-        fotos = request.FILES['foto']
+        try:
+            fotos = request.FILES['foto']
+        except :
+            fotos = 'Looteria/static/imagens/user.png'
+
+        
+
+        
         if not username.strip():
             print('O campo Username não pode ficar em branco')
+            messages.error(request, 'O campo Username não pode ficar em branco')
             
             return redirect('cadastro')
-            messages.success(request, 'Successfully Sent The Message!')
         if not nome.strip():
+            messages.error(request, 'O campo nome não pode ficar em branco')
             print('O campo nome não pode ficar em branco')
             return redirect('cadastro')
         if not sobrenome.strip():
+            messages.error(request, 'O campo sobrenome não pode ficar em branco')
             print('O campo sobrenome não pode ficar em branco')
             return redirect('cadastro')
         if not email.strip():
+            messages.error(request, 'O campo email não pode ficar em branco')
             print('O campo email não pode ficar em branco')
             return redirect('cadastro')
         if senha != senha2:
+            messages.error(request, 'As senhas não são iguais')
             print('As senhas não são iguais')
             return redirect('cadastro')
         if User.objects.filter(email=email).exists():
             print('Usuário já cadastrado')
+            messages.error(request, 'Email já cadastrado')
             return redirect('cadastro')
         if User.objects.filter(username=username).exists():
             print('Usuário já cadastrado')
+            messages.error(request, 'Usuário já cadastrado')
             return redirect('cadastro')
 
 
@@ -67,6 +81,9 @@ def cadastro(request):
         profile = Profile.objects.create(numero=numero,sexo=sexo,cod_conf=cod,ativado=False,user_id = request.user.id,pontos=0,urltrade=url,aniversario=aniversario,foto=fotos)     
         profile.save()
         print('Usuário cadastrado com sucesso')
+
+        pessoa = Pessoa.objects.create(nome=nome,email=email,username=username,telefone=numero,senha=senha)
+        pessoa.save()
 
         
         return redirect('dashboard')

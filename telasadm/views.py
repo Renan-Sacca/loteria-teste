@@ -27,12 +27,12 @@ def cd_rifa(request):
         skins = skin.objects.get(id=int(id_skin))
         participantes = "{"
         for i in range(1,int(num_entradas)+1):
-            participantes += "'" + str(i) + "':" + "'',"
+            participantes += '"' + str(i) + '":{"numero":' + '"'+ str(i) + '","nome":"","foto":""},'
 
         participantes = participantes[0:-1]
         participantes += "}"  
         print(participantes)
-        rifas = rifa.objects.create(valor_total=valor_total,num_entradas=num_entradas,valor_entrada=valor_entrada,participantes=participantes,data_inicial=data_inicial,data_final=data_final,skin=skins,ativa=ativa)     
+        rifas = rifa.objects.create(valor_total=valor_total,num_entradas=num_entradas,valor_entrada=valor_entrada,participantes=participantes,data_inicial=data_inicial,data_final=data_final,skin=skins,ativa=ativa,num_part=0,premium=True)     
         rifas.save()
         return render(request,'cd_rifa.html')
 

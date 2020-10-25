@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cadastro Looterya</title>
+    <title>Cadastro Looterya </title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="icon" href="{% static 'imagens/logo_loteria.png' %}">
@@ -12,7 +12,7 @@
     <div class="main-block">
     <form action="{% url 'cadastro' %}" style=" margin:37px 200px 20px 200px ; border-radius: 20px; border-style: double; background:#fff ; " method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-      <h1>Cadastro Looterya</h1>
+      <h1>Cadastro Looterya </h1>
       <fieldset>
         <legend>
           <h3>Detalhes da conta</h3>
@@ -72,6 +72,10 @@
           </div>
       </fieldset>
       <input type="submit" value="Cadastrar">
+      <h2></h2>
+      <a href="{% url 'index' %}" ><input type="button" value="Voltar"></a>
+      
+      <h2 style="background: black; background-color: red;">{% include 'partials/_alertas.html' %} </h2>
     </form>
     </div> 
   </body>

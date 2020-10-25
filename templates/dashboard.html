@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<link rel="stylesheet" href="{% static 'css/index2.css' %}">
+<link rel="stylesheet" href="{% static 'css/indexn.css' %}">
 <link rel="stylesheet" href="{% static 'css/filtros.css' %}">
 <link rel="stylesheet" href="{% static 'css/banner.css' %}">
+<link rel="stylesheet" href="{% static 'css/rating.css' %}">
 <link rel="icon" href="{% static 'imagens/logo.png' %}">
 
 <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
@@ -17,64 +18,86 @@
 </head>
 
 <body style="background-image: linear-gradient( #303459,darkblue)">
-
   {% include 'partials/menu2.html' %}
   {% include 'partials/banner.html' %}
-  
-  
   <div id="content">
-    <section class="sidebar"> 
-      <!-- This adds a sidebar with 1 searchbox,2 menusets, each with 4 links -->
-      <input type="text"  id="search" placeholder="Digite o nome da skin">
-      <div id="menubar">
-        <nav class="menu">
-          <h2><!-- Title for menuset 1 -->FILTRAR POR CATEGORIAS </h2>
-          <hr>
-          <ul>
-            <!-- List of links under menuset 1 -->
-            <li><a href="#" title="Link">Factory New</a></li>
-            <li><a href="#" title="Link">Minimal Wear</a></li>
-            <li><a href="#" title="Link">Field Tested</a></li>
-			<li><a href="#" title="Link">Well-Worn</a></li>
-            <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views --><a href="#"  title="Link">Battle Scared</a></li>
-          </ul>
-        </nav>
-        <nav class="menu">
-          <h2>FILTRAR POR VALOR </h2>
-          <!-- Title for menuset 2 -->
-          <hr>
-          <ul class="slidecontainer">
-            <!--List of links under menuset 2 -->
-			<li>
-				<p style="margin-top: -10px; margin-bottom: 0px">Valor Mínimo: <span id="demo"></span></p>   
-			</li>  
-			
-            <li>	
-  				<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-			</li>
-			
-          </ul>
-        </nav>
-      </div>
-    </section>
+	  
+	  <center><img src="{% static 'imagens/destaque.png' %}"></center>
+
     <section class="mainContent">
-     
-     <div class="productRow"><!-- Each product row contains info of 3 elements -->
-       {% for rifas in rifa %}
-       <article class="productInfo"><!-- Each individual product description -->
-         <div><img alt="sample" src="{{ rifas.skin.link }}"></div>
-         <p class="price">{{ rifas.valor_entrada }} LootPoints</p>
-         <p class="productContent">{{ rifas.skin.nome }}</p>
-     <p class="productContent">{{ rifas.skin.categoria }}</p>
-     <a href={% url 'rifas' rifas.id %}><input type="button" name="button" value="Entre na Rifa" class="buyButton"></a>
-       </article>
-       {% endfor %}
-       
-       
-     </div>
-     
-   </section>
+      <div class="productRow"><!-- Each product row contains info of 3 elements -->
+        <article class="productInfo"><!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhnwMzJemkV0966m4-PhOf7Ia_ummJW4NFOhujT8om73ASy-0RqNW-hLYTAcg5vMgvT_Vm4wefthpO_v8yYwHVlsicr4C3fzQv330_79eypFA/360fx360f"></div>
+          <p class="price">318 Moedas</p>
+          <p class="productContent">AK-47 | Bloodsport</p>
+		  <p class="productContent">Minimal Wear</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+        <article class="productInfo"><!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJS_8W1nI-bluP8DLfYkWNF18lwmO7Eu92kjQHgqkVrYzv0I4_AcwE7ZguDr1C2lL_tgJTou52cm3Fm6SZz4nrD30vgWTTGJEA/360fx360f"></div>
+          <p class="price">55 Moedas</p>
+          <p class="productContent">AWP | Fever Dream</p>
+		  <p class="productContent">Factory New</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+        <article class="productInfo"> <!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwW0924l4WYg-X1P4Tdn2xZ_Pp9i_vG8ML2ilDt_EBuZWH6coKXIAFvNAvZ-wPqk-fug5DuvciczXNnsycmti3agVXp1u5gA4zt/360fx360f"></div>
+          <p class="price">158 Moedas</p>
+          <p class="productContent">M4A4 | 龍王 (Dragon King)</p>
+		  <p class="productContent">Factory New</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+		<article class="productInfo"> <!-- Each individual product description -->
+          <div><img alt="sample" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0vL3dzxG6eO6nYeDg8j4MqnWkyUHucB1ieqXrIrz2gHmr0ZvZDj3cNKUdlQ-YF6DqAS2w-i8h5Dt6Zib1zI97Ycw1ud8/360fx360f"></div>
+          <p class="price">5900 Moedas</p>
+          <p class="productContent">Glock-18 | Fade</p>
+		  <p class="productContent">Factory New</p>
+          <input type="button" name="button" value="Entre na Rifa" class="buyButton">
+        </article>
+		  
+		<!--PARTE 2 - ABAIXO DOS ÍCONES DE RIFA EM DESTAQUE--> 
+		 
+		<article class="comentsInfo"> 
+			
+			<!--ISSO AQUI É O RATING -->
+			<center><h1>AVALIAÇÕES</h1></center>
+			
+            <input type="text" id="nome" placeholder="Digite seu nome" style="color: black; width:25%; margin-right: 470px; margin-top: 30px">
+			
+			
+			<div class="rating rating2" style="width: 50%; float: left">
+				<a href="#5" title="Give 5 stars">★</a>
+				<a href="#4" title="Give 4 stars">★</a>
+				<a href="#3" title="Give 3 stars">★ </a>
+				<a href="#2" title="Give 2 stars">★</a>
+				<a href="#1" title="Give 1 star">★</a>
+			</div> 	
+       	  <div>
+			<textarea placeholder="sinta-se a vontade para fazer qualquer comentário :D"></textarea
+			</div>
+				<p></p>
+				<input type="button" name="button" value="Envie seu Feedback" class="buyButton">
+					
+				<div>
+				  <img src="{% static 'imagens/rank.png' %}" style="margin: -20% -50% 10% 10%">
+				</div>
+				<p style="color: antiquewhite; padding-left: 950px; margin-top: -365px;">1</p>
+				<p style="color: antiquewhite; padding-left: 950px; margin-top: 35px;">2</p>
+				<p style="color: antiquewhite; padding-left: 950px; margin-top: 30px;">3</p>
+				<p style="color: antiquewhite; padding-left: 950px; margin-top: 27px;">30</p>
+				<p style="color: antiquewhite; padding-left: 950px; margin-top: 32px;">100</p>
+        </article>
+		</div>	
+    </section>
   </div>
+		
+	
+	
+
   {% include 'partials/footer.html' %}
+</div>
+<script type="text/javascript" src="banner.js"></script>
+<script type="text/javascript" src="filtros.js"></script>
 </body>
 </html>
+

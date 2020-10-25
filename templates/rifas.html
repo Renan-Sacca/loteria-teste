@@ -22,8 +22,9 @@
   <div id="content">
     <section class="sidebar"> 
 		<h3 style="color: black">Username: {{ user.first_name }}</h3>
-		<img src="{% static 'imagens/robo.png' %}" style="width: 100%">
+		
     {% for profiles in profile %}
+    <img src="{{ profiles.foto.url }}" style="width: 100%">
 		<h3 style="color: black">LootPoints:  {{profiles.pontos}} </h3>
 		{% endfor %}  
 		<div id="menubar">
@@ -38,7 +39,7 @@
     {% for rifas in rifa %}
    
 		<h3 style="color: black">{{ rifas.skin.nome }} ({{ rifas.skin.categoria }})</h3>
-      <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7umeldf0Ob3fDxBvYyJmoGIhfLLPr7Vn35c18lwmO7Eu42giVbg-RY4MTylJYSSdgQ6M1_YrlS4x-_vjZPov5nNyndjuCghtnnD30vgC8iQ-N0/330x192" width="100%">
+      <img src="{{ rifas.skin.link }}" width="100%">
 		<h3 style="color: black">Valor da Entrada: {{ rifas.valor_entrada }} LootPoints</h3>
     {% endfor %}
       <div id="menubar">
@@ -48,11 +49,16 @@
     </section>
     <section class="mainContent">
       <div class="productRow"><!-- Each product row contains info of 3 elements -->
+        {% for te in t %}
         <article class="productInfo"><!-- Each individual product description -->
           <div><img alt="sample" src="{% static 'imagens/buzz2.png' %}"></div>
-			<h3 style="color: white">Nº 1</h3>
+			<h3 style="color: white">{{ te.numero }}</h3>
           <input type="button" name="button" value="Buy" class="buyButton" style="background-color:gray" disabled>
         </article>
+        {% endfor %}
+
+
+        
         <article class="productInfo"><!-- Each individual product description -->
           <div><img alt="sample" src="{% static 'imagens/user.png' %}"></div>
 			<h3 style="color: white">Nº 2</h3>

@@ -10,6 +10,8 @@ class rifa(models.Model):
     num_entradas = models.IntegerField()
     valor_entrada = models.IntegerField()
     participantes = models.TextField()
+    num_part = models.IntegerField()
+    premium = ativa = models.BooleanField()
     data_inicial = models.DateField()
     data_final =  models.DateField()
     skin = models.ForeignKey(skin,on_delete=models.CASCADE)
