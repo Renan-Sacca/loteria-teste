@@ -50,6 +50,8 @@ def Rifas(request,valor):
 
 def rifas_p(request):    
     rifas = rifa.objects.filter(ativa=True)
+    #rifas2 = rifa.objects.filter(ativa=True).order_by('skin_id','categoria')
+    #print(rifas2)
     dados={
         'rifa' : rifas,
     }
