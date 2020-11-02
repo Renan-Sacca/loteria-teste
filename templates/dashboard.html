@@ -8,8 +8,6 @@
 
 
 <link rel="stylesheet" href="{% static 'css/indexn.css' %}">
-<link rel="stylesheet" href="{% static 'css/filtros.css' %}">
-<link rel="stylesheet" href="{% static 'css/banner.css' %}">
 <link rel="stylesheet" href="{% static 'css/rating.css' %}">
 <link rel="icon" href="{% static 'imagens/logo.png' %}">
 
@@ -20,6 +18,10 @@
 <body style="background-image: linear-gradient( #303459,darkblue)">
   {% include 'partials/menu2.html' %}
   {% include 'partials/banner.html' %}
+  
+  <div id="mainWrapper">
+
+
   <div id="content">
 	  
 	  <center><img src="{% static 'imagens/destaque.png' %}"></center>
@@ -96,8 +98,7 @@
 
   {% include 'partials/footer.html' %}
 </div>
-<script type="text/javascript" src="banner.js"></script>
-<script type="text/javascript" src="filtros.js"></script>
+
 </body>
 </html>
 

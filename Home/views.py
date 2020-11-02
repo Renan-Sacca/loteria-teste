@@ -26,9 +26,3 @@ def dashboard(request):
         return render(request,'dashboard.html',dados)
     else:
         return render(request,'index.html', dados)
-
-
-    
-
-    
-

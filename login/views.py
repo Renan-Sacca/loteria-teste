@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-
 from django.contrib import auth ,messages
 from login.models import Profile
 from login.models import Pessoa
@@ -27,7 +26,7 @@ def cadastro(request):
         try:
             fotos = request.FILES['foto']
         except :
-            fotos = 'Looteria/static/imagens/user.png'
+            fotos = '/media/static/imagens/user.png'
 
         
 

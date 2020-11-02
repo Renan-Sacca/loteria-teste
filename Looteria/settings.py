@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'Looteria.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'looterya1',
-        'USER' : 'looterya1',
+        'NAME': 'looterya',
+        'USER' : 'looterya',
         'PASSWORD' : 'rgs050601',
         "HOST" : 'pgsql.looterya.com.br'
     }

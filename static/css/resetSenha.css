@@ -1,44 +1,5 @@
 @charset "utf-8";
 /* Global Styles */
-.dropbtn {
-	background-color: #4CAF50;
-	color: white;
-	padding: 16px;
-	font-size: 16px;
-	border: none;
-	cursor: pointer;
-  }
-  
-  .dropdown {
-	position: relative;
-	display: inline-block;
-  }
-  
-  .dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: black;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: auto;
-  }
-  
-  .dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #f1f1f1}
-  
-  .dropdown:hover .dropdown-content {
-	display: block;
-  }
-  
-  .dropdown:hover .dropbtn {
-	background-color: #3e8e41;
-  }
 a:hover {
 	color: rgba(255,255,255,1.00);
 }
@@ -62,7 +23,7 @@ header {
 /* div for Links in header */
 #headerLinks {
 	float: right;
-	width: calc( 66% - 120px );
+	width: calc( 66% - 139px );
 	text-align: left;
 	border-radius: 15px;
 	padding-top: 10px;
@@ -79,22 +40,7 @@ header {
 	padding-left: 66px;
 	font-size: 14px;
 }
-/* Offer text banner*/
-#offer {
-	font-family: 'Montserrat', sans-serif;
-	clear: both;
-	
-	color: White;
-	padding-left: 115px;
-	padding-top: 57px;
-	
-	
-}
-#content2 {
-	clear: both;
-	width: 90%;
-	padding-left: 5%;
-}
+
 #content {
 	clear: both;
 	overflow: auto;
@@ -106,21 +52,22 @@ header {
 	color: rgba(255,255,255,1.00);
 	float: left;
 	width: 20%;
+	margin-top: 12px;
 	padding-left: 3%;
 	padding-right: 3%;
 	text-align: center;
 	background-color: rgba(246,246,246,1.00);
-	padding-top: 36px;
-	height: 520px;
+	padding-top: 0px;
+	height: 390px;
 }
 /* main content of the site */
 #content .mainContent {
-    float: left;
-    width: 96%;
-    text-align: center;
-    padding-left: 4%;
+	float: left;
+	width: 96%;
+	text-align: center;
+	padding-left: 4%;
 }
-/*menubar's properties for menus in sidebar */
+/*menubar's properties for menus in <strong>sidebar</strong> */
 #content .sidebar #menubar {
 	text-align: left;
 	color: rgba(146,146,146,1.00);
@@ -141,7 +88,7 @@ header {
 /* Whole page content */
 #mainWrapper {
 	width: 90%;
-	padding-left: 5%;
+	padding-left: 3%;
 }
 /*menu elements */
 .menu ul li {
@@ -153,96 +100,67 @@ header {
 }
 /* Product rows for catalog */
 #content .mainContent .productRow {
-    overflow: auto;
-    color: black;
-    width: 100%;
+	overflow: auto;
+	color: black;
+	text-align: left;
+	width: 100%;
 }
-
 /* Each product Information in the catalog */
 .mainContent .productRow .productInfo {
-	float: left;
 	padding-left: 4%;
-	padding-right: 4%;
-	width: 14%;
-	border-radius: 10px;
-	border-style: double;
-	background-color: rgba(0,0,5,0.6);
-	margin: 10px;
-}
-
-.mainContent .productRow .comentsInfo {
-	width: 22%;
+	padding-right: 0%;
 	display: block;
 	border-radius: 10px;
 	border-style: double;
 	background-color: rgba(0,0,5,0.6);
 	margin: 10px;
-	margin-top: 400px;
-	height: 490px;
-	width: 95%;
+	height: 380px;
+	margin-left: 16%;
+	width: 60%;
 }
 
-.mainContent .productRow .comentsInfo textarea{
-	resize:none; 
-	margin-top: 20px; 
-	width: 40%; 
-	height: 150px; 
-	font-family: 'Montserrat', sans-serif;
-	margin: -10%; 
-	margin-right: 20%
+.ladoA {
+	width: 50%;
+	float: left;
+	display: block;
 }
 
-.mainContent .productRow .comentsInfo p{
-	font-size: 20px;
-	font-family: 'Montserrat', sans-serif;
-	color: antiquewhite
+.ladoB{
+	width: 50%;
+	float: right;
+	display: inline;
 }
 
-.mainContent .productRow .comentsInfo h1{
-	font-family: 'Montserrat', sans-serif; 
-	color: antiquewhite;
-	font-size: 30px;
-	margin-right: 60px;
+#inline{
+	display: inline;
+	width: 200%;
 }
 
-.productRow .comentsInfo .buyButton {
-	position: relative;
-	margin-right: 50%;
-	top: 90px;
-	width: 20%;
-	background-color:darkblue;
-	height: 35px;
-	color: rgba(255,255,255,1.00);
-	border-style: none;
-	font-size: 14px;
-	text-transform: uppercase;
-	margin-top: 8px;
-}
-
-/* Prices of a products in catalog */
-.productRow .productInfo .price {
-	font-family: 'Montserrat', sans-serif;
-	color: White;
-	font-size: 20px;
-	position: relative;
-	top: -20px;
-}
-/* Content holder for products in catalog*/
 .productRow .productInfo .productContent {
 	position: relative;
 	top: -37px;
-	font-size: 15px;
-	font-family: source-sans-pro, sans-serif;
+	font-size: 14px;
+	font-family: 'Montserrat', sans-serif;
 	font-style: normal;
+	display: inline;
 	font-weight: 200;
+	width: 100%;
 	color: White;
 	white-space: pre-wrap;
 }
-/* Buy button for products in catalog */
+.productRow .productInfo label{
+	font-family: 'Montserrat', sans-serif;
+}
+.productRow .productInfo span{
+	font-family: 'Montserrat', sans-serif;
+	color: antiquewhite;
+	text-align: right;
+}
+
 .productRow .productInfo .buyButton {
 	position: relative;
 	top: -48px;
-	width: 84%;
+	width: 30%;
 	background-color:darkblue;
 	height: 35px;
 	color: rgba(255,255,255,1.00);
@@ -320,11 +238,53 @@ footer .footerlinks {
 
 }
 
+.sidebar .buyButton{
+	position: relative;
+	top: -30px;
+	width: 84%;
+	float: right;
+	background-color:darkblue;
+	height: 35px;
+	color: rgba(255,255,255,1.00);
+	border-style: none;
+	font-size: 14px;
+	text-transform: uppercase;
+	margin-top: 8px;
+}
 
 
-
-
-
+.mainContent .productRow .productInfoRifa {
+	float: left;
+	padding-left: 4%;
+	padding-right: 4%;
+	width: 20%;
+	border-radius: 10px;
+	border-style: double;
+	background-color: rgba(0,0,5,0.6);
+	margin: 10px;
+	
+}
+/* Prices of a products in catalog */
+.productRow .productInfoRifa .price {
+	font-family: 'Montserrat', sans-serif;
+	color: White;
+	font-size: 12px;
+	text-align: center;
+	position: relative;
+	top: -20px;
+}
+/* Content holder for products in catalog*/
+.productRow .productInfoRifa .productContent {
+	position: relative;
+	top: -30px;
+	font-size: 14px;
+	font-family: source-sans-pro, sans-serif;
+	font-style: normal;
+	font-weight: 200;
+	color: White;
+	text-align: center;
+	white-space: pre-wrap;
+}
 
 
 
@@ -413,6 +373,7 @@ footer .footerlinks {
 /* Content holders in catalog view */
 .productRow .productInfo .productContent {
 	font-size: 20px;
+	display: inline;
 	color: red;
 }
 /* Buy buttons in catalog view */
@@ -516,7 +477,7 @@ header #headerLinks a {
 /* Each product in catalog view */
 .mainContent .productRow .productInfo {
 	width: 100%;
-	display: block;
+	display: inline;
 	padding-left: 0px;
 	padding-right: 0px;
 	position: relative;
