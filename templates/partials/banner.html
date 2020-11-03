@@ -1,15 +1,27 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
-<link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/banner.css' %}">
+<section id="offer"> 
+  
+    <div class="slideshow-container">
+  <div class="mySlides1">
+    <img src="{% static 'imagens/banner1.png' %}" style="width:100%">
+  </div>
 
-<div id="content2">
-<div class="slider">
-  <img src="{% static 'imagens/banner1.png' %}" class="imagem-jogo">
-  <img src="{% static 'imagens/banner2.png' %}" class="imagem-jogo">
-  <img src="{% static 'imagens/banner3.png' %}" class="imagem-jogo">
-</div>
-</div>
+  <div class="mySlides1">
+    <img src="{% static 'imagens/banner2.png' %}" style="width:100%">
+  </div>
 
-<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
-<script src="{% static 'slick/slick.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/slider.js' %}"></script>
+  <div class="mySlides1">
+    <img src="{% static 'imagens/banner3.png' %}" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
+  
+  <!-- The offer section displays a banner text for promotions 
+  <h2>OFFER 50%</h2>
+  <p>REALLY AWESOME DISCOUNTS THIS JULY</p> -->
+</section>
+<div id="mainWrapper">
+<script type="text/javascript" src="{% static 'js/banner.js' %}"></script>
